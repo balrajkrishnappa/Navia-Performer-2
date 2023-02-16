@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>966,702</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>624,702</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FlexMan_Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -109,10 +109,10 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,154</av:Point>
-          <av:Size x:Key="ShapeSize">200,52</av:Size>
+          <av:Size x:Key="ShapeSize">219,52</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: FlexMan - TEST Version using DB Server - SEASDBLN, Database = Staging !_!_!_!_!_!_!" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OutUiElement="[out_FlexmanUiElement]" ScopeGuid="8abd569d-b4d9-4af6-80b6-eba089904758" Timeout="180" Version="V2">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: FlexMan - TEST Version using DB Server - SEASDBLN, Database = Staging !_!_!_!_!_!_!" sap:VirtualizedContainerService.HintSize="888,2097" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OutUiElement="[out_FlexmanUiElement]" ScopeGuid="8abd569d-b4d9-4af6-80b6-eba089904758" Timeout="180" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
