@@ -1,16 +1,20 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="EnterData_Flexman" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="EnterData_Flexman" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Str_BatchNumber" Type="InArgument(x:String)" />
     <x:Property Name="in_ApprovedAmount" Type="InArgument(x:String)" />
     <x:Property Name="in_DeniedAmount" Type="InArgument(x:String)" />
+    <x:Property Name="in_List_DenialReasons" Type="InArgument(scg:IList(x:String))" />
   </x:Members>
+  <this:EnterData_Flexman.in_List_DenialReasons>
+    <InArgument x:TypeArguments="scg:IList(x:String)" />
+  </this:EnterData_Flexman.in_List_DenialReasons>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>626,1948</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>724,2167</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>EnterData_Flexman_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <sco:Collection x:TypeArguments="x:String">
+    <scg:List x:TypeArguments="x:String" Capacity="64">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -43,10 +47,12 @@
       <x:String>System.Security</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Reflection</x:String>
-    </sco:Collection>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+    </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="48">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -86,27 +92,35 @@
       <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
       <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="EnterData_Flexman" sap:VirtualizedContainerService.HintSize="636,1883" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="EnterData_Flexman" sap:VirtualizedContainerService.HintSize="734,2062" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Claim Entry - Yee-TEST, Matthew-TEST - OGS" sap:VirtualizedContainerService.HintSize="574,1772" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="a57a3c1b-f415-4db5-9e11-b936b5615da2" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Claim Entry - Yee-TEST, Matthew-TEST - OGS" sap:VirtualizedContainerService.HintSize="672,1951" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="a57a3c1b-f415-4db5-9e11-b936b5615da2" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="540,1481" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="638,1620" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'WindowsForms10.Window.8...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="478,135" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[in_Str_BatchNumber+ &quot;[k(enter)]&quot;]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'WindowsForms10.Window.8...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="576,135" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[in_Str_BatchNumber+ &quot;[k(enter)]&quot;]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="24c4dd74-b970-487e-8704-06cf6a511e5d" InformativeScreenshot="055e36b608a71fb7a8a00a208594125d" Selector="&lt;wnd ctrlname='txtOpenBatchId' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -118,7 +132,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'WindowsForms10.Window.8...'" sap:VirtualizedContainerService.HintSize="478,135" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[in_ApprovedAmount]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'WindowsForms10.Window.8...'" sap:VirtualizedContainerService.HintSize="576,135" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[in_ApprovedAmount]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4a6aadef-8b40-4416-aa1b-2da84fcf79e9" InformativeScreenshot="e9f17bd43337bb05e7e1efff0ee49498" Selector="&lt;wnd ctrlname='gbClaim' /&gt;&lt;wnd ctrlname='gbAmount' /&gt;&lt;wnd ctrlname='txtApprovedAmt' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -130,7 +144,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'WindowsForms10.Window.8...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="478,135" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[in_DeniedAmount]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'WindowsForms10.Window.8...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="576,135" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[in_DeniedAmount]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4a6aadef-8b40-4416-aa1b-2da84fcf79e9" InformativeScreenshot="e9f17bd43337bb05e7e1efff0ee49498" Selector="&lt;wnd ctrlname='gbClaim' /&gt;&lt;wnd ctrlname='gbAmount' /&gt;&lt;wnd ctrlname='txtApprovedAmt' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -142,15 +156,15 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <If Condition="[Cint(in_DeniedAmount)&gt;0]" sap:VirtualizedContainerService.HintSize="478,841" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[Cint(in_DeniedAmount)&gt;0]" sap:VirtualizedContainerService.HintSize="576,980" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="400,562" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence sap:VirtualizedContainerService.HintSize="498,701" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'WindowsForms10.Window.8...'" sap:VirtualizedContainerService.HintSize="338,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'WindowsForms10.Window.8...'" sap:VirtualizedContainerService.HintSize="436,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -172,39 +186,46 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <uix:NClick ClickType="Single" DisplayName="Click 'False'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a57a3c1b-f415-4db5-9e11-b936b5615da2" Version="V3">
-                    <uix:NClick.Target>
-                      <uix:TargetAnchorable DesignTimeRectangle="47, 170, 65, 18" DesignTimeScaleFactor="1" ElementType="Cell" FriendlyName="'False'" FullSelectorArgument="&lt;wnd ctrlname='flexGridDenialReasons' /&gt;&lt;ctrl name='flexUltraGrid1' role='table' /&gt;&lt;ctrl name='List`1 row 1' role='row' /&gt;&lt;ctrl name='Select' role='cell' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='flexGridDenialReasons' /&gt;&lt;ctrl name='flexUltraGrid1' role='table' /&gt;&lt;ctrl name='List`1 row 1' role='row' /&gt;&lt;ctrl name='Select' role='cell' automationid='' /&gt;" Guid="e76eb745-88d0-4aa9-89c5-a958393f4d6b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEUAAAAWCAYAAACWl1FwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACTSURBVFhH7ZLBCcAgDEXdyeUco6O4QV2g5xw6jEUrqYcPxUts8T8ICd58PLcfZy6IyNKzxageqpTywHlGS1mdlFK78i2lfyBNihXe++GxYlopo5+0lNJjXsoILAXAUgAsBcBSACwFwFIALAXAUgAsBbBMKaNjxbRS/oJpKV+GpbygUlwQ7rarlHo4d1tadKuQIPkCXFP2AFIaWgUAAAAASUVORK5CYII=" InformativeScreenshot="455ebc4a3d7e9ee25c8076f606233178.png" ScopeSelectorArgument="&lt;wnd app='flexwin.exe' ctrlname='frmAddDenial' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
-                        <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                            <uix:Target DesignTimeRectangle="111, 170, 276, 18" ElementType="Cell" FriendlyName="'Duplicate claim'" FullSelectorArgument="&lt;wnd ctrlname='flexGridDenialReasons' /&gt;&lt;ctrl name='flexUltraGrid1' role='table' /&gt;&lt;ctrl name='List`1 row *' role='row' /&gt;&lt;ctrl name='Denial Reason' role='cell' text='Duplicate claim' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='flexGridDenialReasons' /&gt;&lt;ctrl name='flexUltraGrid1' role='table' /&gt;&lt;ctrl name='List`1 row *' role='row' /&gt;&lt;ctrl name='Denial Reason' role='cell' text='Duplicate claim' automationid='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAARgAAAAWCAYAAAAb84NIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIgSURBVHhe7ZjbcYQwDEUpj4L4SBkpgCLSAdsFv9uJYxlsZK0JjzWTZDhnRgvGRlaYucqFZhxHJ/H59eWEOCYIgjgbsZ80ckIQBFE7QoMJv57H4zGfAQDUITUYAIBaRMOy4WAG1zWNa3R0wzx3gqFzTdu7pz3/LfbU8BfqBPinbDgYaTCd/10YujeaTC2xPnvX1shD8wC4hAMOJm8wXt2ub1vXn1ElDQbgVhx2MIK4mGBiRKDKzWTXfRNq42tVFLEWtBH3s29fX8NkTbyW8kiD02Nzr8qpWc2v64nzOo9d03XLa6PPs+R9fU4Ad+UNByM629FgmsXlyPVWBlaspfMwnNcbUn7tYEwNIviXe9fym+ua7G/Re6XnMX2finul9QCQuNDBKOHGdVas83kSfAGZ084i5FcNxs6HUDUJq/lNncW9bM0pd/5sio0N4Ka84WDk2uxOMsHJsG6DCa8fpfymwWwJe3WNqmF1L1tzWkODAdjisIMR4SWRZR9bZW25wSSBW7GWzsNwWp+Ldvr2EvLbVyQjdN0oAjvqWd3L1ply02AA1jjgYPLXhly86oOrF1un/+uX7rFiVaIPjcGuL+w/TcXrk8Cze1VOTTF/VsPKXrbmrDYaDMBPbDiYk5jmAQD3YqeDOQkNBgA81zgYALg11zoYAAAPDgYAqoODAYDLwcEAQHWSg2k+xjDgyJEjx1pHidBgwq8nThIEQdQI55z7Bp6f37/wDmr9AAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
-                          </scg:List>
-                        </uix:TargetAnchorable.Anchors>
-                      </uix:TargetAnchorable>
-                    </uix:NClick.Target>
-                  </uix:NClick>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'cell  Select'" sap:VirtualizedContainerService.HintSize="338,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
-                    <ui:Click.CursorPosition>
-                      <ui:CursorPosition Position="Center">
-                        <ui:CursorPosition.OffsetX>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetX>
-                        <ui:CursorPosition.OffsetY>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetY>
-                      </ui:CursorPosition>
-                    </ui:Click.CursorPosition>
-                    <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cba436f2-545e-442f-8dbe-45f96e06213d" InformativeScreenshot="bc7cdc562f4eec88c1008d944dc39185" Selector="&lt;wnd app='flexwin.exe' ctrlname='frmAddDenial' /&gt;&lt;wnd ctrlname='flexGridDenialReasons' /&gt;&lt;ctrl name='flexUltraGrid1' role='table' /&gt;&lt;ctrl name='List`1 row 1' role='row' /&gt;&lt;ctrl name='Select' role='cell' /&gt;">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:Click.Target>
-                  </ui:Click>
+                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="436,443" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_List_DenialReasons]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="x:String">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:String" Name="reason" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,319" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="Assign_1" />
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'cell  Select'" sap:VirtualizedContainerService.HintSize="338,107" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cba436f2-545e-442f-8dbe-45f96e06213d" InformativeScreenshot="bc7cdc562f4eec88c1008d944dc39185" Selector="&lt;wnd app='flexwin.exe' ctrlname='frmAddDenial' /&gt;&lt;ctrl name='Denial Reason' role='cell' text='' /&gt;&lt;nav up='1' /&gt;&lt;ctrl name='Select' role='cell' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                  </ui:ForEach>
                 </Sequence>
               </If.Then>
               <If.Else>
