@@ -1,4 +1,4 @@
-﻿<Activity mc:Ignorable="sap sap2010" x:Class="Laserfiche_Login" this:Laserfiche_Login.in_ApplicationName="STAGING" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Laserfiche_Login" this:Laserfiche_Login.in_ApplicationName="STAGING" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_ApplicationName" Type="InArgument(x:String)" />
     <x:Property Name="io_LaserficheUiElement" Type="InOutArgument(ui:UiElement)" />
@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>680,3463</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>626,3345</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Laserfiche_Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -96,29 +96,25 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Laserfiche_Login" sap:VirtualizedContainerService.HintSize="636,3278" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Laserfiche_Login" sap:VirtualizedContainerService.HintSize="636,3280" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="LaunchingLasefiche" sap:VirtualizedContainerService.HintSize="574,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Launching Laserfiche Application&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application:  Laserfiche" sap:VirtualizedContainerService.HintSize="574,3035" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OutUiElement="[io_LaserficheUiElement]" ScopeGuid="aa868f71-12ec-4b74-8c57-70d840b88097" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application:  Laserfiche" sap:VirtualizedContainerService.HintSize="574,3037" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OutUiElement="[io_LaserficheUiElement]" ScopeGuid="aa868f71-12ec-4b74-8c57-70d840b88097" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="LaserficheLogin" sap:VirtualizedContainerService.HintSize="540,2704" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="LaserficheLogin" sap:VirtualizedContainerService.HintSize="540,2706" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="Str_LaserficheUsername" />
               <Variable x:TypeArguments="ss:SecureString" Name="Str_LaserfichePassword" />
               <Variable x:TypeArguments="x:Boolean" Name="bool_LoginSuccess" />
-              <Variable x:TypeArguments="x:Int32" Name="time_Timeout">
-                <Variable.Default>
-                  <Literal x:TypeArguments="x:Int32" Value="60000" />
-                </Variable.Default>
-              </Variable>
+              <Variable x:TypeArguments="x:Int32" Default="60000" Name="time_Timeout" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
