@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>966,3170</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>680,3463</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Laserfiche_Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -96,33 +96,36 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Laserfiche_Login" sap:VirtualizedContainerService.HintSize="636,3105" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Laserfiche_Login" sap:VirtualizedContainerService.HintSize="636,3278" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="LaunchingLasefiche" sap:VirtualizedContainerService.HintSize="574,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Launching Laserfiche Application&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application:  Laserfiche" sap:VirtualizedContainerService.HintSize="574,2862" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OutUiElement="[io_LaserficheUiElement]" ScopeGuid="aa868f71-12ec-4b74-8c57-70d840b88097" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application:  Laserfiche" sap:VirtualizedContainerService.HintSize="574,3035" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OutUiElement="[io_LaserficheUiElement]" ScopeGuid="aa868f71-12ec-4b74-8c57-70d840b88097" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="LaserficheLogin" sap:VirtualizedContainerService.HintSize="540,2531" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="LaserficheLogin" sap:VirtualizedContainerService.HintSize="540,2704" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="Str_LaserficheUsername" />
               <Variable x:TypeArguments="ss:SecureString" Name="Str_LaserfichePassword" />
               <Variable x:TypeArguments="x:Boolean" Name="bool_LoginSuccess" />
-              <Variable x:TypeArguments="x:Int32" Default="60000" Name="time_Timeout" />
+              <Variable x:TypeArguments="x:Int32" Name="time_Timeout">
+                <Variable.Default>
+                  <Literal x:TypeArguments="x:Int32" Value="60000" />
+                </Variable.Default>
+              </Variable>
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Selecting &quot;+in_ApplicationName+&quot; for downloading New Claims..&quot;]" />
-            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="SelectingStaging" sap:VirtualizedContainerService.HintSize="478,135" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="STAGING">
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  lstDatabases'" sap:VirtualizedContainerService.HintSize="478,135" sap2010:WorkflowViewState.IdRef="SelectItem_3" Item="STAGING">
               <ui:SelectItem.Items>
                 <scg:List x:TypeArguments="x:String" Capacity="4">
                   <x:String>NaviaClaims</x:String>
@@ -130,7 +133,7 @@
                 </scg:List>
               </ui:SelectItem.Items>
               <ui:SelectItem.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4f574cd2-be83-4cc5-a489-a6c53711663f" InformativeScreenshot="0b25a32540811859b659b94480be9cd3" Selector="&lt;html app='lf.exe' title='Laserfiche' /&gt;&lt;webctrl tableCol='1' tableRow='2' tag='SELECT' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2ae1b2ed-7ec0-425e-ad41-1dd514c2a74e" InformativeScreenshot="9dcc99f0c6837ef065b50cca47ca4421" Selector="&lt;html app='lf.exe' title='Laserfiche' /&gt;&lt;webctrl tag='SELECT' colName='Available Repositories' parentclass='dbTB' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -140,9 +143,28 @@
                 </ui:Target>
               </ui:SelectItem.Target>
             </ui:SelectItem>
-            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Enter" sap:VirtualizedContainerService.HintSize="478,157" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="enter" KeyModifiers="None" SpecialKey="True">
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  lstAuthModes'" sap:VirtualizedContainerService.HintSize="478,135" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="Username and password">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="4">
+                  <x:String>Username and password</x:String>
+                  <x:String>Windows Authentication</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ed760db3-2235-4da2-bcd9-7f68387e0053" InformativeScreenshot="756f0b0cfadbec6c3c283ce81f704fb8" Selector="&lt;html app='lf.exe' title='Laserfiche' /&gt;&lt;webctrl tag='SELECT' parentid='LoginOptions' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Selecting &quot;+in_ApplicationName+&quot; for downloading New Claims..&quot;]" />
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'SELECT  lstAuthModes'" sap:VirtualizedContainerService.HintSize="478,157" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="enter" KeyModifiers="None" SpecialKey="True">
               <ui:SendHotkey.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9ee61b79-87cc-4beb-84bb-24b3de9820c4" InformativeScreenshot="21fbd858b496e700b2ff584055367d82" Selector="&lt;html app='lf.exe' title='Laserfiche' /&gt;&lt;webctrl tableCol='1' tableRow='2' tag='SELECT' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a7cf1f91-ea8a-462b-809d-9b1cb3a85e37" InformativeScreenshot="970b522ae4fb6619e0bafb2ff3bcf117" Selector="&lt;html app='lf.exe' title='Laserfiche' /&gt;&lt;webctrl tag='SELECT' colName='Available Repositories' id='lstDatabases' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
