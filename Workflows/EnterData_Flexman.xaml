@@ -1,9 +1,10 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="EnterData_Flexman" this:EnterData_Flexman.in_Str_BatchNumber="29909814" this:EnterData_Flexman.in_ApprovedAmount="0" this:EnterData_Flexman.in_DeniedAmount="7" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="EnterData_Flexman" this:EnterData_Flexman.in_Str_BatchNumber="29909814" this:EnterData_Flexman.in_ApprovedAmount="0" this:EnterData_Flexman.in_DeniedAmount="7" this:EnterData_Flexman.in_Str_RowIndex="1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Str_BatchNumber" Type="InArgument(x:String)" />
     <x:Property Name="in_ApprovedAmount" Type="InArgument(x:String)" />
     <x:Property Name="in_DeniedAmount" Type="InArgument(x:String)" />
     <x:Property Name="in_List_DenialReasons" Type="InArgument(scg:IList(x:String))" />
+    <x:Property Name="in_Str_RowIndex" Type="InArgument(x:String)" />
   </x:Members>
   <this:EnterData_Flexman.in_List_DenialReasons>
     <InArgument x:TypeArguments="scg:IList(x:String)" />
@@ -11,7 +12,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>724,1897</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>724,2004</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>EnterData_Flexman_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -102,24 +103,53 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="EnterData_Flexman" sap:VirtualizedContainerService.HintSize="734,1712" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="EnterData_Flexman" sap:VirtualizedContainerService.HintSize="734,1819" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Claim Entry - Yee-TEST, Matthew-TEST - OGS" sap:VirtualizedContainerService.HintSize="672,1601" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="a57a3c1b-f415-4db5-9e11-b936b5615da2" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Claim Entry - Yee-TEST, Matthew-TEST - OGS" sap:VirtualizedContainerService.HintSize="672,1708" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="a57a3c1b-f415-4db5-9e11-b936b5615da2" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="638,1270" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="638,1417" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="in_int_RowIndex">
+                <Variable.Default>
+                  <Literal x:TypeArguments="x:String">1</Literal>
+                </Variable.Default>
+              </Variable>
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'cell  Needs Approval'" sap:VirtualizedContainerService.HintSize="576,107" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1a3e945c-114b-41d1-92d9-c6902632cd64" InformativeScreenshot="16ad02b1eb04b267ed75a806be88d842" Selector="[string.Format(&quot;&lt;wnd ctrlname='gbBatchDetail' /&gt;&lt;ctrl name='List`1 row {0}' role='row' /&gt;&lt;ctrl name='Needs Approval' role='cell' /&gt;&quot;, in_Str_RowIndex)]">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
             <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'WindowsForms10.Window.8...'" sap:VirtualizedContainerService.HintSize="576,135" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[in_ApprovedAmount]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4a6aadef-8b40-4416-aa1b-2da84fcf79e9" InformativeScreenshot="e9f17bd43337bb05e7e1efff0ee49498" Selector="&lt;wnd ctrlname='gbClaim' /&gt;&lt;wnd ctrlname='gbAmount' /&gt;&lt;wnd ctrlname='txtApprovedAmt' /&gt;">
