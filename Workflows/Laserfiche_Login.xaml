@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>626,3345</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>626,3385</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Laserfiche_Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -96,14 +96,14 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Laserfiche_Login" sap:VirtualizedContainerService.HintSize="636,3280" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Laserfiche_Login" sap:VirtualizedContainerService.HintSize="636,3240" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="LaunchingLasefiche" sap:VirtualizedContainerService.HintSize="574,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Launching Laserfiche Application&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application:  Laserfiche" sap:VirtualizedContainerService.HintSize="574,3037" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OutUiElement="[io_LaserficheUiElement]" ScopeGuid="aa868f71-12ec-4b74-8c57-70d840b88097" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application:  Laserfiche" sap:VirtualizedContainerService.HintSize="574,2997" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OutUiElement="[io_LaserficheUiElement]" ScopeGuid="aa868f71-12ec-4b74-8c57-70d840b88097" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
