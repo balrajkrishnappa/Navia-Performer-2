@@ -1,4 +1,4 @@
-﻿<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
@@ -7,10 +7,10 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>622,2218</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>704,2995</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="38">
+    <scg:List x:TypeArguments="x:String" Capacity="76">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -49,10 +49,11 @@
       <x:String>UiPath.UIAutomationNext.Activities</x:String>
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="56">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="112">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -108,9 +109,16 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="632,2073" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="714,2930" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="Str_BatchNumber" />
     </Sequence.Variables>
@@ -120,8 +128,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="570,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="570,61" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="652,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="652,82" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[Str_BatchNumber]</OutArgument>
       </Assign.To>
@@ -129,7 +137,7 @@
         <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("BatchNumber").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Sequence DisplayName="FlexmanData" sap:VirtualizedContainerService.HintSize="570,1349" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="FlexmanData" sap:VirtualizedContainerService.HintSize="652,1350" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Int32" Name="index" />
       </Sequence.Variables>
@@ -173,7 +181,7 @@
           </ui:Target>
         </ui:TypeInto.Target>
       </ui:TypeInto>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[in_TransactionData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="508,916" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[in_TransactionData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="508,917" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
@@ -241,16 +249,18 @@
         </ui:ForEachRow.Body>
       </ui:ForEachRow>
     </Sequence>
-    <Sequence DisplayName="LaserficheData" sap:VirtualizedContainerService.HintSize="570,172" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="LaserficheData" sap:VirtualizedContainerService.HintSize="652,1007" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dt_DistinctDataTable" />
+        <Variable x:TypeArguments="x:Int32" Name="int_ApproveDenyCount" />
+        <Variable x:TypeArguments="x:String" Name="Str_Status" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign sap:VirtualizedContainerService.HintSize="590,82" sap2010:WorkflowViewState.IdRef="Assign_2">
         <Assign.To>
           <OutArgument x:TypeArguments="sd:DataTable">[dt_DistinctDataTable]</OutArgument>
         </Assign.To>
@@ -258,7 +268,42 @@
           <InArgument x:TypeArguments="sd:DataTable">[in_TransactionData.DefaultView.ToTable(True,"ApproveDeny")]</InArgument>
         </Assign.Value>
       </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="590,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[int_ApproveDenyCount]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">[dt_DistinctDataTable.Rows.Count]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <If Condition="[int_ApproveDenyCount=1]" sap:VirtualizedContainerService.HintSize="590,652" sap2010:WorkflowViewState.IdRef="If_2">
+        <If.Then>
+          <If Condition="[dt_DistinctDataTable(0)(&quot;ApproveDeny&quot;).ToString=&quot;Approved&quot;]" sap:VirtualizedContainerService.HintSize="512,376" sap2010:WorkflowViewState.IdRef="If_3">
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[Str_Status]</OutArgument>
+                </Assign.To>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[Str_Status]</OutArgument>
+                </Assign.To>
+              </Assign>
+            </If.Else>
+          </If>
+        </If.Then>
+        <If.Else>
+          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Str_Status]</OutArgument>
+            </Assign.To>
+          </Assign>
+        </If.Else>
+      </If>
     </Sequence>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="570,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="652,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
   </Sequence>
 </Activity>
