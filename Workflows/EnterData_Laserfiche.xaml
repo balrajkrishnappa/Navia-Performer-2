@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>618,1315</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1054,1235</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>EnterData_Laserfiche_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="58">
@@ -99,7 +99,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="455,1059" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_LaserficheUIElement]" OpenMode="Never" ScopeGuid="b53710d5-cadc-47be-981a-bf8f8d9f1cfe" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="455,1059" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_LaserficheUIElement]" OpenMode="Never" ScopeGuid="b53710d5-cadc-47be-981a-bf8f8d9f1cfe" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -114,7 +114,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'RICHEDIT50W'" sap:VirtualizedContainerService.HintSize="338,135" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[&quot;STAGING\NewClaims\&quot;+in_Str_BatchNumber+&quot;.tif[k(enter)]&quot;]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'RICHEDIT50W'" sap:VirtualizedContainerService.HintSize="359,135" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[&quot;STAGING\NewClaims\&quot;+in_Str_BatchNumber+&quot;.tif[k(enter)]&quot;]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f20651bc-1dc3-42ac-b9df-541c9af90c3f" InformativeScreenshot="26556e4619fd3fff874352d6926dd4d9" Selector="&lt;wnd app='lf.exe' cls='LFDesktop' title='NewClaims - Laserfiche' /&gt;&lt;wnd cls='XTPDockBar' title='xtpBarTop' aaname='xtpBarTop' /&gt;&lt;wnd cls='RICHEDIT50W' /&gt;">
                   <ui:Target.TimeoutMS>
