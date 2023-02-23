@@ -12,7 +12,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>820,2843</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1054,2840</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>EnterData_Flexman_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -103,19 +103,19 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="EnterData_Flexman" sap:VirtualizedContainerService.HintSize="830,2778" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="EnterData_Flexman" sap:VirtualizedContainerService.HintSize="830,2775" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: Claim Entry - Yee-TEST, Matthew-TEST - OGS" sap:VirtualizedContainerService.HintSize="768,2667" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="a57a3c1b-f415-4db5-9e11-b936b5615da2" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: Claim Entry - Yee-TEST, Matthew-TEST - OGS" sap:VirtualizedContainerService.HintSize="768,2664" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="a57a3c1b-f415-4db5-9e11-b936b5615da2" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Enter Data Into Flexman" sap:VirtualizedContainerService.HintSize="734,2376" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Enter Data Into Flexman" sap:VirtualizedContainerService.HintSize="734,2373" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Default="1" Name="in_int_RowIndex" />
             </Sequence.Variables>
@@ -166,7 +166,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <If sap2010:Annotation.AnnotationText="Checking if the particular Line item is denied or not.." Condition="[CDbl(in_DeniedAmount)&gt;0]" sap:VirtualizedContainerService.HintSize="672,1206" sap2010:WorkflowViewState.IdRef="If_1">
+            <If sap2010:Annotation.AnnotationText="Checking if the particular Line item is denied or not.." Condition="[CDbl(in_DeniedAmount)&gt;0]" sap:VirtualizedContainerService.HintSize="672,1203" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -261,15 +261,6 @@
                   </ui:ForEach>
                 </Sequence>
               </If.Then>
-              <If.Else>
-                <Sequence sap:VirtualizedContainerService.HintSize="400,103" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </Sequence>
-              </If.Else>
             </If>
             <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'WindowsForms10.Window.8...'" sap:VirtualizedContainerService.HintSize="672,107" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>

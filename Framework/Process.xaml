@@ -1,14 +1,15 @@
-﻿<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_TransactionData" Type="InArgument(sd:DataTable)" />
     <x:Property Name="io_LaserficheUiElement" Type="InOutArgument(ui:UiElement)" />
+    <x:Property Name="io_FlexmanClaimUiElement" Type="InOutArgument(ui:UiElement)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>622,2484</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1054,2506</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="76">
@@ -119,7 +120,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="632,2419" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="663,2441" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="Str_BatchNumber" />
     </Sequence.Variables>
@@ -129,8 +130,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="570,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="570,61" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="601,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="601,82" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[Str_BatchNumber]</OutArgument>
       </Assign.To>
@@ -138,7 +139,7 @@
         <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("BatchID").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Sequence DisplayName="FlexmanData" sap:VirtualizedContainerService.HintSize="570,1349" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="FlexmanData" sap:VirtualizedContainerService.HintSize="601,1350" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Int32" Name="index" />
       </Sequence.Variables>
@@ -148,7 +149,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Claim Entry'" sap:VirtualizedContainerService.HintSize="508,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Claim Entry'" sap:VirtualizedContainerService.HintSize="539,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
         <ui:Click.CursorPosition>
           <ui:CursorPosition Position="Center">
             <ui:CursorPosition.OffsetX>
@@ -170,7 +171,7 @@
           </ui:Target>
         </ui:Click.Target>
       </ui:Click>
-      <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'WindowsForms10.Window.8...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="508,135" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[Str_BatchNumber+ &quot;[k(enter)]&quot;]">
+      <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'WindowsForms10.Window.8...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="539,135" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[Str_BatchNumber+ &quot;[k(enter)]&quot;]">
         <ui:TypeInto.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="24c4dd74-b970-487e-8704-06cf6a511e5d" InformativeScreenshot="055e36b608a71fb7a8a00a208594125d" Selector="&lt;wnd ctrlname='txtOpenBatchId' /&gt;">
             <ui:Target.TimeoutMS>
@@ -182,22 +183,22 @@
           </ui:Target>
         </ui:TypeInto.Target>
       </ui:TypeInto>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[in_TransactionData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="508,916" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[in_TransactionData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="539,917" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="474,800" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="505,800" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <Sequence.Variables>
-                <Variable x:TypeArguments="scg:IList(x:String)" Name="list_denialreasons" />
+                <Variable x:TypeArguments="scg:List(x:String)" Name="list_denialreasons" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[CDbl(row(&quot;DenialAmount&quot;).ToString)&gt;0]" sap:VirtualizedContainerService.HintSize="412,389" sap2010:WorkflowViewState.IdRef="If_1">
+              <If Condition="[row(&quot;Result&quot;).ToString.Trim=&quot;Deny&quot;]" sap:VirtualizedContainerService.HintSize="443,389" sap2010:WorkflowViewState.IdRef="If_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -205,25 +206,41 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ListOfDenialReasons.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ListOfDenialReasons.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Workflows\ListOfDenialReasons.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="365,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\ListOfDenialReasons.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionData">[in_TransactionData]</InArgument>
-                      <InArgument x:TypeArguments="x:Int32" x:Key="in_Index">[index]</InArgument>
-                      <OutArgument x:TypeArguments="scg:IList(x:String)" x:Key="out_list_denialreasons">[list_denialreasons]</OutArgument>
+                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionData">
+                        <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_TransactionData" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="in_Index">
+                        <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="index" />
+                      </InArgument>
+                      <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_list_denialreasons">
+                        <VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="list_denialreasons" />
+                      </OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </If.Then>
               </If>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Workflows\EnterData_Flexman.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="412,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\EnterData_Flexman.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Workflows\EnterData_Flexman.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="443,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\EnterData_Flexman.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_Str_BatchNumber">29909814</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_ApprovedAmount">0</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_DeniedAmount">7</InArgument>
-                  <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="in_List_DenialReasons">[list_denialreasons]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_Str_RowIndex">[index.ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Str_BatchNumber">
+                    <Literal x:TypeArguments="x:String">29909814</Literal>
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ApprovedAmount">
+                    <Literal x:TypeArguments="x:String">0</Literal>
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_DeniedAmount">
+                    <Literal x:TypeArguments="x:String">7</Literal>
+                  </InArgument>
+                  <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="in_List_DenialReasons">
+                    <VisualBasicValue x:TypeArguments="scg:IList(x:String)" ExpressionText="list_denialreasons" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Str_RowIndex">
+                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="index.ToString" />
+                  </InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
-              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'WindowsForms10.Window.8...'" sap:VirtualizedContainerService.HintSize="412,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'WindowsForms10.Window.8...'" sap:VirtualizedContainerService.HintSize="443,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition Position="Center">
                     <ui:CursorPosition.OffsetX>
