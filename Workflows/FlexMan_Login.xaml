@@ -1,11 +1,11 @@
-﻿<Activity mc:Ignorable="sap sap2010" x:Class="FlexMan_Login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="FlexMan_Login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="out_FlexmanUiElement" Type="OutArgument(ui:UiElement)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>728,742</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>624,702</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FlexMan_Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -110,18 +110,18 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,154</av:Point>
-          <av:Size x:Key="ShapeSize">219,52</av:Size>
+          <av:Size x:Key="ShapeSize">200,52</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: FlexMan - TEST Version using DB Server - SEASDBLN, Database = Staging !_!_!_!_!_!_!" sap:VirtualizedContainerService.HintSize="1028,2731" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OutUiElement="[out_FlexmanUiElement]" ScopeGuid="8abd569d-b4d9-4af6-80b6-eba089904758" Timeout="180" Version="V2">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: FlexMan - TEST Version using DB Server - SEASDBLN, Database = Staging !_!_!_!_!_!_!" sap:VirtualizedContainerService.HintSize="1028,2676" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OutUiElement="[out_FlexmanUiElement]" ScopeGuid="8abd569d-b4d9-4af6-80b6-eba089904758" Timeout="180" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <uix:NCheckState DisplayName="Check App State 'FlexMan Login'" sap:VirtualizedContainerService.HintSize="994,2440" sap2010:WorkflowViewState.IdRef="NCheckState_1" Timeout="120" Version="V3">
+            <uix:NCheckState DisplayName="Check App State 'FlexMan Login'" sap:VirtualizedContainerService.HintSize="994,2385" sap2010:WorkflowViewState.IdRef="NCheckState_1" Timeout="120" Version="V3">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="540,2223" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="540,2168" sap2010:WorkflowViewState.IdRef="Sequence_1">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="Str_FlexmanUsername" />
                     <Variable x:TypeArguments="ss:SecureString" Name="Str_FlexmanPassword" />
@@ -179,14 +179,7 @@
                     </ui:UiElementExists.Target>
                   </ui:UiElementExists>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Selecting Claim Entry&quot;]" />
-                  <If Condition="[bool_SuccessfullyLoggedIn]" sap:VirtualizedContainerService.HintSize="478,666" sap2010:WorkflowViewState.IdRef="If_1">
-                    <If.Then>
-                      <uix:NClick ClickType="Single" DisplayName="Click 'Claim Entry'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8abd569d-b4d9-4af6-80b6-eba089904758" Version="V3">
-                        <uix:NClick.Target>
-                          <uix:TargetAnchorable DesignTimeRectangle="285, 55, 38, 38" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Claim Entry'" FullSelectorArgument="&lt;ctrl name='Claim Entry' role='push button' text='Claim Entry' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Claim Entry' role='push button' text='Claim Entry' automationid='' check:text='Claim Entry' /&gt;" Guid="00d27d4b-ba60-408f-80cb-f7751ea8e582" ImageBase64="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" InformativeScreenshot="d65cd12698328f7a0fb19776e9aa8f71.png" ScopeSelectorArgument="&lt;wnd app='flexwin.exe' ctrlname='frmMain' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive" />
-                        </uix:NClick.Target>
-                      </uix:NClick>
-                    </If.Then>
+                  <If Condition="[bool_SuccessfullyLoggedIn]" sap:VirtualizedContainerService.HintSize="478,609" sap2010:WorkflowViewState.IdRef="If_1">
                     <If.Else>
                       <Sequence sap:VirtualizedContainerService.HintSize="400,333" sap2010:WorkflowViewState.IdRef="Sequence_3">
                         <sap:WorkflowViewStateService.ViewState>

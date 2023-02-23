@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1054,2506</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>653,2506</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="76">
@@ -136,7 +136,7 @@
         <OutArgument x:TypeArguments="x:String">[Str_BatchNumber]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("BatchID").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("BatchID").ToString.Replace(".tif","")]</InArgument>
       </Assign.Value>
     </Assign>
     <Sequence DisplayName="FlexmanData" sap:VirtualizedContainerService.HintSize="601,1350" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -223,21 +223,11 @@
               </If>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Workflows\EnterData_Flexman.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="443,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\EnterData_Flexman.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_Str_BatchNumber">
-                    <Literal x:TypeArguments="x:String">29909814</Literal>
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_ApprovedAmount">
-                    <Literal x:TypeArguments="x:String">0</Literal>
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_DeniedAmount">
-                    <Literal x:TypeArguments="x:String">7</Literal>
-                  </InArgument>
-                  <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="in_List_DenialReasons">
-                    <VisualBasicValue x:TypeArguments="scg:IList(x:String)" ExpressionText="list_denialreasons" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_Str_RowIndex">
-                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="index.ToString" />
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Str_BatchNumber">29909814</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ApprovedAmount">0</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_DeniedAmount">7</InArgument>
+                  <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="in_List_DenialReasons">[list_denialreasons]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Str_RowIndex">[index.ToString]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
               <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'WindowsForms10.Window.8...'" sap:VirtualizedContainerService.HintSize="443,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">

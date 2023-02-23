@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1054,1001</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1054,1389</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ListOfDenialReasons_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -94,7 +94,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ListOfDenialReasons" sap:VirtualizedContainerService.HintSize="496,936" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ListOfDenialReasons" sap:VirtualizedContainerService.HintSize="636,1324" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="Str_DenialReasonsAsString" />
       <Variable x:TypeArguments="s:String[]" Name="arr_Reasons" />
@@ -104,7 +104,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="574,82" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(x:String)">[out_list_denialreasons]</OutArgument>
       </Assign.To>
@@ -112,47 +112,73 @@
         <InArgument x:TypeArguments="scg:List(x:String)">[New List(Of String)]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[Str_DenialReasonsAsString]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[in_dt_TransactionData(in_Index)("ReasonsOfDenial").ToString]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
-      <Assign.To>
-        <OutArgument x:TypeArguments="s:String[]">[arr_Reasons]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="s:String[]">[Str_DenialReasonsAsString.Split("|"c)]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434,367" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arr_Reasons]">
-      <ui:ForEach.Body>
-        <ActivityAction x:TypeArguments="x:String">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:String" Name="reason" />
-          </ActivityAction.Argument>
-          <uasc:AppendItemToCollection x:TypeArguments="x:String" Collection="[out_list_denialreasons]" DisplayName="Append item to collection" sap:VirtualizedContainerService.HintSize="334,241" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_8" Result="[out_list_denialreasons]">
-            <uasc:AppendItemToCollection.Items>
-              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                <InArgument x:TypeArguments="x:String">[reason.ToString]</InArgument>
-              </scg:List>
-            </uasc:AppendItemToCollection.Items>
-          </uasc:AppendItemToCollection>
-        </ActivityAction>
-      </ui:ForEach.Body>
-    </ui:ForEach>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,439" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <If Condition="[in_dt_TransactionData(in_Index)(&quot;ReasonsOfDenial&quot;).ToString IsNot Nothing]" sap:VirtualizedContainerService.HintSize="574,999" sap2010:WorkflowViewState.IdRef="If_7">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="496,720" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If Condition="[in_dt_TransactionData(in_Index)(&quot;RxDenial&quot;).ToString.Trim IsNot &quot;&quot;]" sap:VirtualizedContainerService.HintSize="338,52" sap2010:WorkflowViewState.IdRef="If_1">
+          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Str_DenialReasonsAsString]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[in_dt_TransactionData(in_Index)("ReasonsOfDenial").ToString]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s:String[]">[arr_Reasons]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s:String[]">[Str_DenialReasonsAsString.Split("|"c)]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434,365" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arr_Reasons]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:String">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:String" Name="reason" />
+                </ActivityAction.Argument>
+                <uasc:AppendItemToCollection x:TypeArguments="x:String" Collection="[out_list_denialreasons]" DisplayName="Append item to collection" sap:VirtualizedContainerService.HintSize="334,241" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_8" Result="[out_list_denialreasons]">
+                  <uasc:AppendItemToCollection.Items>
+                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                      <InArgument x:TypeArguments="x:String">[reason.ToString]</InArgument>
+                    </scg:List>
+                  </uasc:AppendItemToCollection.Items>
+                </uasc:AppendItemToCollection>
+              </ActivityAction>
+            </ui:ForEach.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEach>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,103" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="574,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="540,942" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[in_dt_TransactionData(in_Index)(&quot;RxDenial&quot;).ToString.Trim IsNot &quot;&quot;]" sap:VirtualizedContainerService.HintSize="478,52" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -179,7 +205,7 @@
               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;RX Number Exists&quot;]" />
             </If.Else>
           </If>
-          <If Condition="[in_dt_TransactionData(in_Index)(&quot;DateOfServiceDeniall&quot;).ToString.Trim IsNot &quot;&quot;]" sap:VirtualizedContainerService.HintSize="338,52" sap2010:WorkflowViewState.IdRef="If_3">
+          <If Condition="[in_dt_TransactionData(in_Index)(&quot;DateOfServiceDeniall&quot;).ToString.Trim IsNot &quot;&quot;]" sap:VirtualizedContainerService.HintSize="478,52" sap2010:WorkflowViewState.IdRef="If_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -206,7 +232,7 @@
               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Date Of service is eligible&quot;]" />
             </If.Else>
           </If>
-          <If Condition="[in_dt_TransactionData(in_Index)(&quot;AmountDenial&quot;).ToString IsNot &quot;&quot;]" sap:VirtualizedContainerService.HintSize="338,52" sap2010:WorkflowViewState.IdRef="If_4">
+          <If Condition="[in_dt_TransactionData(in_Index)(&quot;AmountDenial&quot;).ToString IsNot &quot;&quot;]" sap:VirtualizedContainerService.HintSize="478,52" sap2010:WorkflowViewState.IdRef="If_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
